@@ -59,8 +59,8 @@ public class GetWeekCalendarDataService implements GetAnalysisService {
 		headers.add("Time (" + refTimeZone.getID() + ")");
 		DAYS_OF_WEEK.forEach(day -> {
 			headers.add(day.name());
-			WorkingUtil.getNames(workingHours).forEach(name -> headers.add(name));
-			headers.add(".");
+			//WorkingUtil.getNames(workingHours).forEach(name -> headers.add(name));
+			//headers.add(".");
 		});
 		return headers;
 	}
@@ -94,9 +94,9 @@ public class GetWeekCalendarDataService implements GetAnalysisService {
 
 			for (WorkingHours workingHour : workingHours) {
 				working = getWorkingHoursService.isWorkingTimes(referenceDateTime, workingHour);
-				row.add(WorkingUtil.workingToString(working));
+				//row.add(WorkingUtil.workingToString(working));
 			}
-			row.add(".");
+			//row.add(".");
 
 			localDate = localDate.plusDays(1);
 		}
