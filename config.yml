@@ -1,0 +1,20 @@
+- name: IT
+  startHour: 8
+  endHour: 18
+  workingDays: [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY]
+  timezone: Europe/Rome
+- name: US
+  startHour: 8
+  endHour: 18
+  workingDays: [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY]
+  timezone: America/New_York
+- name: CH
+  startHour: 8
+  endHour: 18
+  workingDays: [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY]
+  timezone: Asia/Shanghai
+- name: SGP
+  startHour: 8
+  endHour: 18
+  workingDays: [SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY]
+  timezone: Asia/Singapore
