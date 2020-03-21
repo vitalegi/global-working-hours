@@ -19,21 +19,41 @@ java -jar .\target\global-working-hours-0.0.1-SNAPSHOT.jar <OPTIONS>
 
 ### OPTIONS
 
-Format: `--from=yyyy-MM-dd --to=yyyy-MM-dd [--tz=timeZone] [--cfg=path/to/file] [--m=week/list/agenda] [--p=cmd/csv]`
 
-- `from` Date since when you want to have the analysis
-- `to` Date to when you want the analysis
-- `tz` TimeZone to be used. E.g.: `Europe/Rome`, `UTC`.  Default: `Europe/Rome`
-- `cfg` path to configuration file, YML format. Default: `config.yml`
-- `m` mode to use for the analysis.
+`--from=yyyy-MM-dd --to=yyyy-MM-dd [--tz=timeZone] [--cfg=path/to/file] [--m=week/list/agenda] [--p=cmd/csv]`
+
+`from` _yyyy-MM-dd_
+
+Date since when you want to have the analysis
+
+`to` _yyyy-MM-dd_
+
+Date to when you want the analysis
+
+`tz` _timezone_
+
+TimeZone to be used. E.g.: `Europe/Rome`, `UTC`.  Default: `Europe/Rome`
+
+`cfg` _path/to/file.yml_
+
+Path to configuration file, YML format. Default: `config.yml`
+
+`m` _mode_
+
+Output template:
+
   - `week` default, collapse data on a weekly bases
   - `list` for each time slot, gives info
-  - `week` collapses adjacent equal slot
-- `p` presentation mode to be used
+  - `agenda` collapses adjacent equal slot
+
+`p`
+
+Destination:
+
   - `cmd` default, print an ascii table
   - `csv` print in csv format
 
-### Sample
+### Example usage
 
 `--from=2020-02-01 --to=2020-02-29 -tz=Europe/Rome --cfg=./config.yml -m=week -p=cmd`
 
