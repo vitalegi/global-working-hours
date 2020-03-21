@@ -21,7 +21,7 @@ public class ActionExec {
 
 	public void execute(LocalDate from, LocalDate to, TimeZone refTimeZone, List<WorkingHours> workingHours,
 			GetAnalysisService processor, Printer printer) {
-		List<LocalDateTime> times = getTimesService.getTimesWith1hSpan(from, to);
+		List<LocalDateTime> times = getTimesService.getTimesWithMinuteSpan(from, to, 0, 59);
 
 		System.out.println(printer.print(processor.process(refTimeZone, times, workingHours)));
 	}

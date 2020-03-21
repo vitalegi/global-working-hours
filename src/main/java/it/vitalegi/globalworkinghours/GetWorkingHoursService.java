@@ -32,7 +32,8 @@ public class GetWorkingHoursService {
 		ZonedDateTime zonedDateTime = referenceDateTime.withZoneSameInstant(workingHours.getTimezone().toZoneId());
 
 		return isWorkingDay(zonedDateTime, workingHours.getWorkingDays())
-				&& isWorkingTime(zonedDateTime, workingHours.getStartHour(), workingHours.getEndHour());
+				&& isAfterWorkStart(zonedDateTime, workingHours.getStartHour())
+				&& isBeforeWorkEnd(zonedDateTime, workingHours.getEndHour());
 	}
 
 	protected boolean isWorkingDay(ZonedDateTime zonedDateTime, List<DayOfWeek> workingDays) {
@@ -44,10 +45,21 @@ public class GetWorkingHoursService {
 		return workingDays.stream().anyMatch(w -> w.equals(day));
 	}
 
-	protected boolean isWorkingTime(ZonedDateTime zonedDateTime, int startHour, int endHour) {
+	protected boolean isAfterWorkStart(ZonedDateTime zonedDateTime, int startHour) {
 
 		int hour = zonedDateTime.getHour();
-		if (startHour <= hour && hour <= endHour) {
+		int minute = zonedDateTime.getMinute();
+		if (hour * 60 + minute >= startHour * 60) {
+			return true;
+		}
+		return false;
+	}
+
+	protected boolean isBeforeWorkEnd(ZonedDateTime zonedDateTime, int endHour) {
+
+		int hour = zonedDateTime.getHour();
+		int minute = zonedDateTime.getMinute();
+		if (hour * 60 + minute <= endHour * 60) {
 			return true;
 		}
 		return false;

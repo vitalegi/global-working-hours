@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.TimeZone;
 import java.util.function.Function;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -26,8 +24,6 @@ import it.vitalegi.globalworkinghours.util.YamlUtil;
 @Component
 @Profile("!test")
 public class GlobalWorkingHoursRunner implements ApplicationRunner {
-
-	private final Logger LOG = LoggerFactory.getLogger(GlobalWorkingHoursRunner.class);
 
 	@Autowired
 	GetAnalysisServiceFactory getAnalysisServiceFactory;
